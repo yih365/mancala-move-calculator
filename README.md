@@ -1,6 +1,6 @@
 # mancala-move-calculator
 [Works with Mancala Avalanche mode] This is a program the takes the number of stones at each pocket of the mancala board as input, then outputs a list of moves that will earn you the most stones.
-Depending on whether you are playing counter-clockwise or clockwise, the indexes of each pocket will be different. This program assesses indexes 6-11 as the player side pockets (these are the pockets that the player can choose from). You must match these pockets to each players' respective sides.
+Depending on whether you are playing counter-clockwise or clockwise, the indexes of each pocket will be different. This program assesses indexes 6-11 as the player side pockets (these are the pockets that the player can choose from). You must match these pockets to each players' respective sides. Index 6 will be the pocket that is farthest away from your mancala bowl. Index 11 will be the pocket that is closest to your mancala bowl.
 
 Ex. If playing a counter-clockwise game, the 0th index will be the pocket to the right and closest to you, the player. The 11th pocket will be the pocket to the left and closest to you.
 Counter-clockwise game:
