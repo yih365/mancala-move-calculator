@@ -6,11 +6,18 @@ Output: list of moves that will provide player with most amount of stones.
 
 
 def main():
-    # get input from user for stones at each pocket
-    boxes = []
+    """ get input from user for stones at each pocket """
+
+    boxes = list()
     for i in range(12):
-        print("Number of pebbles in", i, "th box: ", end='')
-        boxes.append(int(input()))
+        user_input = "-1"
+
+        # make sure user input is a number > 0
+        while not user_input.isnumeric():
+            print("Number of pebbles in", i, "th box: ", end='')
+            user_input = input()
+
+        boxes.append(int(user_input))
     boxes.append(0)
 
     # output order of moves to make
@@ -19,8 +26,9 @@ def main():
     print(moves[1:])
 
 
-# test every move index 6-11
 def rotations(boxes):
+    """ test every move from index 6-11 """
+
     boxes_copied = boxes.copy()
     saved_moves = [0]
     for i in range(6, 12):
@@ -31,12 +39,14 @@ def rotations(boxes):
     return saved_moves
 
 
-# test one rotation of stones from chosen index
 def one_rotation(boxes, index):
+    """ test one rotation of stones from chosen index """
+
     boxes_copy = boxes.copy()
     pebbles = boxes_copy[index]
     dict_moves = [index]
     boxes_copy[index] = 0
+
     while pebbles >= 1:
         # move to next pocket of the board
         if index == 12:
@@ -66,10 +76,12 @@ def one_rotation(boxes, index):
     # insert the number of gained stones into the first index of the list
     dict_moves.insert(0, boxes_copy[12])
 
-    boxes_copy = []
+    boxes_copy.clear()
+
     # returns a list with gained stones in first index.
     # The following numbers are respective pockets for players to move
     return dict_moves
 
 
-main()
+if __name__ == '__main__':
+    main()
